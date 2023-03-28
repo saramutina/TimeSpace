@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		3762859429D233B600CC836C /* Time_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762859329D233B600CC836C /* Time_SpaceApp.swift */; };
-		3762859629D233B600CC836C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762859529D233B600CC836C /* ContentView.swift */; };
 		3762859829D233B700CC836C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762859729D233B700CC836C /* Assets.xcassets */; };
 		3762859B29D233B700CC836C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762859A29D233B700CC836C /* Preview Assets.xcassets */; };
+		376285A429D2368C00CC836C /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285A329D2368C00CC836C /* CountdownView.swift */; };
+		376285A629D23E8A00CC836C /* TimeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285A529D23E8A00CC836C /* TimeSelectorView.swift */; };
+		376285A829D23EDB00CC836C /* FocusTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285A729D23EDB00CC836C /* FocusTimer.swift */; };
+		376285AE29D31E0D00CC836C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285AD29D31E0D00CC836C /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3762859029D233B600CC836C /* Time Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Space.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3762859329D233B600CC836C /* Time_SpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_SpaceApp.swift; sourceTree = "<group>"; };
-		3762859529D233B600CC836C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3762859729D233B700CC836C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3762859A29D233B700CC836C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		376285A329D2368C00CC836C /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		376285A529D23E8A00CC836C /* TimeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectorView.swift; sourceTree = "<group>"; };
+		376285A729D23EDB00CC836C /* FocusTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimer.swift; sourceTree = "<group>"; };
+		376285AD29D31E0D00CC836C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,11 @@
 		3762859229D233B600CC836C /* Time Space */ = {
 			isa = PBXGroup;
 			children = (
+				376285AF29D3393100CC836C /* Models */,
 				3762859329D233B600CC836C /* Time_SpaceApp.swift */,
-				3762859529D233B600CC836C /* ContentView.swift */,
+				376285A329D2368C00CC836C /* CountdownView.swift */,
+				376285A529D23E8A00CC836C /* TimeSelectorView.swift */,
+				376285AD29D31E0D00CC836C /* TimerView.swift */,
 				3762859729D233B700CC836C /* Assets.xcassets */,
 				3762859929D233B700CC836C /* Preview Content */,
 			);
@@ -65,6 +74,14 @@
 				3762859A29D233B700CC836C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		376285AF29D3393100CC836C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				376285A729D23EDB00CC836C /* FocusTimer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3762859629D233B600CC836C /* ContentView.swift in Sources */,
+				376285A629D23E8A00CC836C /* TimeSelectorView.swift in Sources */,
+				376285A429D2368C00CC836C /* CountdownView.swift in Sources */,
 				3762859429D233B600CC836C /* Time_SpaceApp.swift in Sources */,
+				376285AE29D31E0D00CC836C /* TimerView.swift in Sources */,
+				376285A829D23EDB00CC836C /* FocusTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

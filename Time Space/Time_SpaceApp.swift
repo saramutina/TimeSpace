@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Time_SpaceApp: App {
+    @StateObject var timer: FocusTimer = FocusTimer(lengthInMinutes: 15)
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimerView()
+                .environmentObject(timer)
         }
     }
 }
