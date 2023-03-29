@@ -12,7 +12,7 @@ struct TimeSelectorView: View {
     @State var angleValue: CGFloat = 150.0
     
     let config = RoundSelectorConfig(
-        minimumValue: 5.0,
+        minimumValue: 1.0,
         maximumValue: 61.0,
         totalValue: 61.0,
         knobRadius: 15.0,
