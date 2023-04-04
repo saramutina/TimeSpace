@@ -9,36 +9,64 @@ import SwiftUI
 
 struct TimeSelectorView: View {
     @EnvironmentObject var timer: FocusTimer
+    
     @State var angleValue: CGFloat = 150.0
     
-    let config = RoundSelectorConfig(
-        minimumValue: 1.0,
-        maximumValue: 61.0,
-        totalValue: 61.0,
-        knobRadius: 15.0,
-        raduis: 120.0)
+    var config: RoundSelectorConfig {
+        switch timer.timerType {
+        case .focusTimer:
+            return RoundSelectorConfig(
+                minimumValue: 1.0,
+                maximumValue: 61.0,
+                totalValue: 61.0,
+                knobRadius: 15.0,
+                raduis: 120.0)
+        case .breakTimer:
+            return RoundSelectorConfig(
+                minimumValue: 1.0,
+                maximumValue: 21.0,
+                totalValue: 21.0,
+                knobRadius: 15.0,
+                raduis: 120.0)
+        }
+    }
     
     var body: some View {
-        ZStack {
-            Circle()
-                .trim(from: 0, to: CGFloat(timer.lengthInMinutes) / config.totalValue)
-                .stroke(Color.green, lineWidth: 12)
-                .frame(width: config.raduis * 2, height: config.raduis * 2)
-                .rotationEffect(.degrees(-90))
-            Circle()
-                .fill(Color.teal)
-                .frame(width: config.knobRadius * 2, height: config.knobRadius * 2)
-                .padding(10)
-                .offset(y: -config.raduis)
-                .rotationEffect(Angle.degrees(Double(angleValue)))
-                .gesture(DragGesture(minimumDistance: 0.0)
-                    .onChanged({ value in
-                        change(location: value.location)
-                    }))
-            Text("\(timer.lengthInMinutes) minutes")
+        VStack {
+            Text(timer.timerType.selectingTimeMessage)
+                .font(.title)
+                .padding(.bottom, 60)
+                .multilineTextAlignment(.center)
+            ZStack {
+                Circle()
+                    .trim(from: 0, to: CGFloat(timer.lengthInMinutes) / config.totalValue)
+                    .stroke(Color.green, lineWidth: 12)
+                    .frame(width: config.raduis * 2, height: config.raduis * 2)
+                    .rotationEffect(.degrees(-90))
+                Circle()
+                    .fill(Color.teal)
+                    .frame(width: config.knobRadius * 2, height: config.knobRadius * 2)
+                    .padding(10)
+                    .offset(y: -config.raduis)
+                    .rotationEffect(Angle.degrees(Double(
+                        (timer.lengthInMinutes * 360 / (Int(config.maximumValue) - 1))
+                    )))
+                    .gesture(DragGesture(minimumDistance: 0.0)
+                        .onChanged({value in
+                            change(location: value.location)
+                        }))
+                Text("\(timer.lengthInMinutes) minutes")
+            }
         }
         .onAppear {
-            timer.lengthInMinutes = 25
+            switch timer.timerType {
+            case .focusTimer:
+                timer.lengthInMinutes = 25
+                angleValue = 150.0
+            case .breakTimer:
+                timer.lengthInMinutes = 5
+                angleValue = 90.0
+            }
         }
     }
 }
@@ -64,8 +92,8 @@ extension TimeSelectorView {
 extension TimeSelectorView {
     struct RoundSelectorConfig {
         let minimumValue: CGFloat
-        let maximumValue: CGFloat
-        let totalValue: CGFloat
+        var maximumValue: CGFloat
+        var totalValue: CGFloat
         let knobRadius: CGFloat
         let raduis: CGFloat
     }

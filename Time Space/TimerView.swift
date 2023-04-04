@@ -14,10 +14,6 @@ struct TimerView: View {
         VStack {
             if timer.isTimerActive {
                 CountdownView()
-            } else {
-                TimeSelectorView()
-            }
-            if timer.isTimerActive {
                 Button(action: {
                     timer.stopTimer()
                 }) {
@@ -32,8 +28,9 @@ struct TimerView: View {
                 }
                 .padding(.top, 60)
             } else {
+                TimeSelectorView()
                 Button(action: {
-                    timer.startTimer()
+                    timer.startTimer(for: timer.lengthInMinutes)
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
@@ -45,6 +42,23 @@ struct TimerView: View {
                     }
                 }
                 .padding(.top, 60)
+            }
+            if timer.timerType == .breakTimer {
+                Button(action: {
+                    timer.stopTimer()
+                    timer.timerType = .focusTimer
+                    timer.lengthInMinutes = 25
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .frame(width: 120, height: 40)
+                            .foregroundColor(.teal)
+                        Text("Skip")
+                            .foregroundColor(.black)
+                            .font(.headline)
+                    }
+                }
+                .padding(.top)
             }
         }
     }

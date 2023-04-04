@@ -11,8 +11,14 @@ struct CountdownView: View {
     @EnvironmentObject var timer: FocusTimer
     
     var body: some View {
-        Text(String(format: "%02d:%02d", timer.minutes, timer.seconds))
-            .font(.title)
+        VStack {
+            Text(timer.timerType.timerOnMessage)
+                .font(.title)
+                .padding(.bottom, 60)
+                .multilineTextAlignment(.center)
+            Text(String(format: "%02d:%02d", timer.minutes, timer.seconds))
+                .font(.title)
+        }
     }
 }
 
