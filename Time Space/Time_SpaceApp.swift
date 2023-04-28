@@ -13,11 +13,13 @@ struct Time_SpaceApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                Color("Background")
-                    .edgesIgnoringSafeArea(.all)
-                TimerView()
-                    .environmentObject(timer)
+            NavigationView {
+                ZStack {
+                    Color("Background")
+                        .edgesIgnoringSafeArea(.all)
+                    TimerView()
+                        .environmentObject(timer)
+                }
             }
         }
     }

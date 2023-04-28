@@ -11,13 +11,9 @@ class FocusTimer: ObservableObject {
     @Published var lengthInMinutes: Int
     @Published var isTimerActive: Bool = false
     @Published var timerType: TimerType = .focusTimer
+    var history: [History] = []
     private var secondsRemaining: Int
-    
-    init(lengthInMinutes: Int = 0) {
-        self.lengthInMinutes = lengthInMinutes
-        self.secondsRemaining = lengthInMinutes * 60
-    }
-    
+    private var timer: Timer?
     var minutes: Int {
         secondsRemaining / 60
     }
@@ -25,7 +21,10 @@ class FocusTimer: ObservableObject {
         secondsRemaining % 60
     }
     
-    private var timer: Timer?
+    init(lengthInMinutes: Int = 0) {
+        self.lengthInMinutes = lengthInMinutes
+        self.secondsRemaining = lengthInMinutes * 60
+    }
     
     func startTimer(for lengthInMinutes: Int) {
         isTimerActive = true
@@ -36,6 +35,7 @@ class FocusTimer: ObservableObject {
             if self.secondsRemaining > 0 {
                 self.secondsRemaining -= 1
             } else {
+                self.addHistory()
                 switch self.timerType {
                 case .focusTimer:
                     self.timerType = .breakTimer
@@ -51,6 +51,12 @@ class FocusTimer: ObservableObject {
         timer?.invalidate()
         timer = nil
         isTimerActive = false
+    }
+    
+    func addHistory() {
+        guard timerType == .focusTimer else { return }
+        let newHistory = History(minutesFocused: lengthInMinutes)
+        self.history.insert(newHistory, at: 0)
     }
 }
 

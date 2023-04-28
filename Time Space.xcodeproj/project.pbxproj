@@ -14,6 +14,8 @@
 		376285A629D23E8A00CC836C /* TimeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285A529D23E8A00CC836C /* TimeSelectorView.swift */; };
 		376285A829D23EDB00CC836C /* FocusTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285A729D23EDB00CC836C /* FocusTimer.swift */; };
 		376285AE29D31E0D00CC836C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376285AD29D31E0D00CC836C /* TimerView.swift */; };
+		377E1DBB29FB585C00A39ADF /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E1DBA29FB585C00A39ADF /* History.swift */; };
+		377E1DBD29FB5E4500A39ADF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E1DBC29FB5E4500A39ADF /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		376285A529D23E8A00CC836C /* TimeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectorView.swift; sourceTree = "<group>"; };
 		376285A729D23EDB00CC836C /* FocusTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimer.swift; sourceTree = "<group>"; };
 		376285AD29D31E0D00CC836C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		377E1DBA29FB585C00A39ADF /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		377E1DBC29FB5E4500A39ADF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,10 @@
 			children = (
 				376285AF29D3393100CC836C /* Models */,
 				3762859329D233B600CC836C /* Time_SpaceApp.swift */,
-				376285A329D2368C00CC836C /* CountdownView.swift */,
-				376285A529D23E8A00CC836C /* TimeSelectorView.swift */,
 				376285AD29D31E0D00CC836C /* TimerView.swift */,
+				376285A529D23E8A00CC836C /* TimeSelectorView.swift */,
+				376285A329D2368C00CC836C /* CountdownView.swift */,
+				377E1DBC29FB5E4500A39ADF /* HistoryView.swift */,
 				3762859729D233B700CC836C /* Assets.xcassets */,
 				3762859929D233B700CC836C /* Preview Content */,
 			);
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				376285A729D23EDB00CC836C /* FocusTimer.swift */,
+				377E1DBA29FB585C00A39ADF /* History.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377E1DBD29FB5E4500A39ADF /* HistoryView.swift in Sources */,
+				377E1DBB29FB585C00A39ADF /* History.swift in Sources */,
 				376285A629D23E8A00CC836C /* TimeSelectorView.swift in Sources */,
 				376285A429D2368C00CC836C /* CountdownView.swift in Sources */,
 				3762859429D233B600CC836C /* Time_SpaceApp.swift in Sources */,

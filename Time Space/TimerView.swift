@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject var timer: FocusTimer
+    @State private var isPresentingHistoryView = false
     
     var body: some View {
         VStack {
@@ -59,6 +60,31 @@ struct TimerView: View {
                     }
                 }
                 .padding(.top)
+            }
+        }
+        .toolbar {
+            if !timer.isTimerActive {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isPresentingHistoryView = true
+                    }) {
+                        Image(systemName: "chart.xyaxis.line")
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $isPresentingHistoryView) {
+            NavigationView {
+                HistoryView(history: timer.history)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                isPresentingHistoryView = false
+                            }) {
+                                Image(systemName: "xmark")
+                            }
+                        }
+                    }
             }
         }
     }
