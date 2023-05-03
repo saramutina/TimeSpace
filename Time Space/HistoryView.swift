@@ -12,9 +12,9 @@ struct HistoryView: View {
     
     var body: some View {
         VStack {
-            Text("You've focused for **\(minutesFocusedToday)** minutes today!")
+            Text("You've focused for **\(minutesFocusedToday)** minute\(endingIfPlural(count:minutesFocusedToday)) today!")
                 .padding(.bottom)
-            Text("Totally you've focused for **\(totalMinutesFocused)** minutes with this app!")
+            Text("Totally you've focused for **\(totalMinutesFocused)** minute\(endingIfPlural(count:totalMinutesFocused)) with this app!")
                 .multilineTextAlignment(.center)
         }
         .padding()
@@ -39,6 +39,14 @@ extension HistoryView {
         }
         return minutesToday
     }
+    
+    private func endingIfPlural(count: Int) -> String {
+        if count == 1 {
+            return ""
+        } else {
+            return "s"
+        }
+    }
 }
 
 struct HistoryView_Previews: PreviewProvider {
@@ -53,7 +61,7 @@ struct HistoryView_Previews: PreviewProvider {
             History(date: twoDaysAgo, minutesFocused: 12),
             History(date: yesterday, minutesFocused: 25),
             History(date: yesterday, minutesFocused: 60),
-            History(date: today, minutesFocused: 15)
+            History(date: today, minutesFocused: 1)
         ])
     }
 }
